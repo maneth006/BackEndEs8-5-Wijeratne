@@ -5,7 +5,7 @@ import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "voti", value = "/voti")
 public class HelloServlet extends HttpServlet {
     private String message;
 
@@ -14,19 +14,13 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("User-Agent:" + request.getHeader("User-Agent"));
-        System.out.println("Accept-Encoding:" + request.getHeader("Accept-Encoding"));
-        System.out.println("Connection:" + request.getHeader("Connection"));
+        response.setContentType("text/html");
 
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + BENVENUTO + "</h1>");
+        out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
-    }
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpServletResponse.SC_BAD_REQUEST;
-
     }
 
     public void destroy() {
